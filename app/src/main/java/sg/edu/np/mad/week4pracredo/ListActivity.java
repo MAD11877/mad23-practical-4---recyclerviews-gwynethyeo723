@@ -11,7 +11,6 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.Random;
 
-import sg.edu.np.mad.week4prac.R;
 
 public class ListActivity extends AppCompatActivity {
     int count = 1;

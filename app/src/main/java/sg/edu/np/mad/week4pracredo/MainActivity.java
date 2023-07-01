@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import sg.edu.np.mad.week4prac.R;
 
 public class MainActivity extends AppCompatActivity {
     @Override

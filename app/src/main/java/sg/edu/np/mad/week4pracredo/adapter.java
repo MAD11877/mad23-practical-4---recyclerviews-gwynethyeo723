@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import sg.edu.np.mad.week4prac.R;
 
 public class adapter extends RecyclerView.Adapter<ViewHolder> {
     ArrayList<user> data;
