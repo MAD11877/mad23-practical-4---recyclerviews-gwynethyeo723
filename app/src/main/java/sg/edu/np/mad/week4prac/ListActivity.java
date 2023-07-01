@@ -20,10 +20,10 @@ public class ListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_list);
 
 
-        ArrayList<user> userlist = new ArrayList<>();
+        ArrayList<User> userlist = new ArrayList<>();
         if (userlist.size() == 0){
             for (int i = 0; i < 20; i++){
-                user newUser = createUser();
+                User newUser = createUser();
                 userlist.add(newUser);
             }
         }
@@ -41,7 +41,7 @@ public class ListActivity extends AppCompatActivity {
         int value = ran.nextInt(999999999);
         return value;
     }
-    private user createUser(){
+    private User createUser(){
         int ran1 = random();
         int ran2 = random();
         String name = "Name" + ran1;
@@ -49,7 +49,7 @@ public class ListActivity extends AppCompatActivity {
         int id = count;
         String description = "Description " + ran2;
         count++;
-        user newUser = new user(name, description, id, false);
+        User newUser = new User(name, description, id, false);
         return newUser;
     }
 }
