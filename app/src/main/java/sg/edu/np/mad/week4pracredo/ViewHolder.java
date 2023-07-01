@@ -7,6 +7,8 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import sg.edu.np.mad.week4prac.R;
+
 public class ViewHolder extends RecyclerView.ViewHolder {
     ImageView image;
     TextView txt;
