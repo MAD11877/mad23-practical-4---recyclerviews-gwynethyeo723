@@ -1,43 +1,55 @@
 package sg.edu.np.mad.week4prac;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.ImageView;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class ListActivity extends AppCompatActivity {
-    static ArrayList<User> userList;
-
+    int count = 1;
+    private static final String TAG = "ListActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
-        userList = new ArrayList<>();
-        for(int i=0; i<20; i++)
-        {
-            User u = new User();
-            u.name = "Name" + new Random().nextInt();
-            u.description = "Description " + new Random().nextInt();
-            u.followed = new Random().nextInt()%2 == 0;
-            userList.add(u);
+
+        ArrayList<user> userlist = new ArrayList<>();
+        if (userlist.size() == 0){
+            for (int i = 0; i < 20; i++){
+                user newUser = createUser();
+                userlist.add(newUser);
+            }
         }
 
-        RecyclerView rv = findViewById(R.id.rv);
-        myAdapter Adapter = new myAdapter(userList);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        rv.setLayoutManager(linearLayoutManager);
-        rv.setAdapter(Adapter);
+        RecyclerView recyclerView = findViewById(R.id.recycler);
+        adapter mAdapter = new adapter(ListActivity.this,userlist);
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(mAdapter);
+
+    }
+    private int random(){
+        Random ran = new Random();
+        int value = ran.nextInt(999999999);
+        return value;
+    }
+    private user createUser(){
+        int ran1 = random();
+        int ran2 = random();
+        String name = "Name" + ran1;
+        boolean followed = false;
+        int id = count;
+        String description = "Description " + ran2;
+        count++;
+        user newUser = new user(name, description, id, false);
+        return newUser;
     }
 }
