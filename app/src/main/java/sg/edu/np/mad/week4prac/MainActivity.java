@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         TextView name = findViewById(R.id.textView2);
         TextView des = findViewById(R.id.textView);
 
-        user user1 = (user) getIntent().getSerializableExtra("key");
+        User user1 = (User) getIntent().getSerializableExtra("key");
         name.setText(user1.name);
         des.setText(user1.description);
         follow.setText(user1.followed ? "unfollow" : "follow");
